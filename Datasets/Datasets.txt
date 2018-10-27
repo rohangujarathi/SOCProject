@@ -1,0 +1,14 @@
+Reuters headlines - 13798
+English proverbs - 1019
+wiki sentences - 12046
+
+csv
+quotes - 76000
+reddit news - 73609
+short jokes - 231658
+
+
+id
+category
+value
+
