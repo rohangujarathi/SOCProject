@@ -1,12 +1,13 @@
 from flask import Flask
 from flask_restful import Resource, Api
+from flask_cors import CORS
 
 app = Flask(__name__)
-api = Api(app)
-
+api  = Api(app)
+cors = CORS(app)
 class HumorDetector(Resource):
     def get(self, sentence):
-        return {'flag': self.model(sentence)}
+        return {'query':sentence, 'flag': self.model(sentence)}
         
     def model(self, sentence):
         if 'joke' in sentence:
