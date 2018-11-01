@@ -1,0 +1,19 @@
+<html>
+<script>
+function UserAction() {
+var value = document.getElementById('input').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+    };
+    xhttp.open("GET", "http://127.0.0.1:5000/hm/"+value, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+}
+</script>
+<body>
+<input name = "i1" id = "input"/>
+<input type = "submit" onclick = "UserAction()" />
+</body>
