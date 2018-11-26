@@ -1,0 +1,52 @@
+<html>
+<head>
+<title> Humor Detection </title>
+<link rel="stylesheet" type="text/css" href="static/index.css" />
+<script>
+function UserAction() {
+	
+document.getElementById('response').innerHTML = "Querying model...";
+for(var i=0;i<1000;i++){
+	//nothing to be done
+}	
+var value = document.getElementById('value').value;
+//alert(value.length);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState === 4 && this.status === 200) {
+         	this.r = JSON.parse(this.responseText);
+         	//alert(this.r.flag);
+             if(this.r.flag){
+             	document.getElementById('response').innerHTML = "Yes, It's a Joke";
+             	
+             }else{
+             	   document.getElementById('response').innerHTML = "No, It's not a Joke";
+             }
+         }
+    };
+    
+    xhttp.open("GET", "http://intense-linker-223305.appspot.com/hm/"+value, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    
+}
+</script>
+</head>
+<body background-color:"black" align = "center">
+<h1>  Is that a Joke?  </h1>
+<div id = "response"></div>
+
+<div class="container">
+  <img src="static/w1.jpg" alt="robo" style="width:40%;">
+  <div class="content">
+    <h3>Enter the sentence</h3>
+  </div>
+ 
+<textarea id = "value" name="myTextBox" maxlength = "200" cols="50" rows="6" center> </textarea>
+<br>
+<br>
+<button align='center' onClick= "UserAction()">Check!</button>
+
+</div>
+</body>
+</html>
